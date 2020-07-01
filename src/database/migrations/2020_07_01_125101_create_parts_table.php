@@ -13,7 +13,7 @@ class CreatePartsTable extends Migration
      */
     public function up()
     {
-        Schema::table('parts', function (Blueprint $table) {
+        Schema::create('parts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->unique();
             $table->integer('supplier_id');
