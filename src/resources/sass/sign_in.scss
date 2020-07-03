@@ -20,6 +20,7 @@
     background: #29b744;
     color: #fff;
     text-align: center;
+    text-decoration: none;
     border: none;
     margin-top: 20px;
     opacity: 1;
@@ -27,6 +28,7 @@
     cursor: pointer;
     &:hover {
       opacity: .7;
+      text-decoration: none;
     }
   }
 }
