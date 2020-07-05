@@ -28,44 +28,24 @@
         <table>
             <tr>
                 <th>商品名</th>
+                <th>商品コード</th>
                 <th>画像</th>
                 <th>作成者</th>
                 <th>作成日</th>
                 <th>最終更新者</th>
                 <th>最終更新日</th>
             </tr>
+            @foreach($products as $product)
             <tr class="lovelyrow" onclick="location.href='/'">
-                <td class="product-name">商品A</td>
+                <td class="product-name">{{$product->name}}</td>
+                <td>{{$product->product_code}}</td>
                 <td>画像</td>
-                <td>Aさん</td>
-                <td>2020-02</td>
-                <td>Aさん</td>
-                <td>2020-02</td>
+                <td>{{$product->createdUser->name}}</td>
+                <td>{{$product->created_at}}</td>
+                <td>{{$product->updatedUser->name}}</td>
+                <td>{{$product->updated_at}}</td>
             </tr>
-            <tr class="lovelyrow" onclick="location.href='/'">
-                <td class="product-name">商品1234567890abcdefghijklmnopqlstuvwxyz1234567890</td>
-                <td>画像</td>
-                <td>Aさん</td>
-                <td>2020-02-24</td>
-                <td>Aさん</td>
-                <td>2020-02-24</td>
-            </tr>
-            <tr class="lovelyrow" onclick="location.href='/'">
-            <td class="product-name">商品A</td>
-                <td>画像</td>
-                <td>Aさん</td>
-                <td>2020-02</td>
-                <td>Aさん</td>
-                <td>2020-02</td>
-            </tr>
-            <tr class="lovelyrow" onclick="location.href='/'">
-                <td class="product-name">商品A</td>
-                <td>画像</td>
-                <td>Aさん</td>
-                <td>2020-02</td>
-                <td>Aさん</td>
-                <td>2020-02</td>
-            </tr>
+            @endforeach
         </table>
 
         <div class="paginate">1 2 3...</div>

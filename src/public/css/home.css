@@ -39,7 +39,7 @@
 }
 
 .topPage .right .title {
-  margin-bottom: 20px;
+  margin: 0 0 20px;
 }
 
 .topPage .right p {
@@ -56,7 +56,7 @@
   text-align: center;
   color: white;
   background: #5484bb;
-  width: 15%;
+  width: 10%;
   padding: 10px 0;
 }
 
@@ -83,7 +83,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   height: 120px;
-  width: 15%;
+  width: 10%;
   max-width: 15%;
   padding: 10px 0;
 }

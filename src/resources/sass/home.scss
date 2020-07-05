@@ -30,7 +30,7 @@
   .right {
     width: calc(100% - 250px);
     .title {
-      margin-bottom: 20px;
+      margin: 0 0 20px;
     }
     p {
       display: inline-block;
@@ -44,7 +44,7 @@
       text-align: center;
       color:white;
       background: rgb(84, 132, 187);
-      width: 15%;
+      width: 10%;
       padding: 10px 0;
     }
     tr.lovelyrow {
@@ -67,7 +67,7 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       height: 120px;
-      width: 15%;
+      width: 10%;
       max-width: 15%;
       padding: 10px 0;
       &:last-child {
