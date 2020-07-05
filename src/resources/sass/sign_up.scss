@@ -24,9 +24,11 @@ body {
     margin-top: 20px;
     padding: 10px;
     border-radius: 90px;
+    text-decoration: none;
     transition: opacity .5s;
     &:hover {
       opacity: .6;
+      text-decoration: none;
     }
   }
 }

@@ -10,4 +10,14 @@ class Product extends Model
     {
         return $this->belongsToMany('App\Part');
     }
+
+    public function createdUser()
+    {
+        return $this->belongsTo('App\User', 'created_user_id');
+    }
+
+    public function updatedUser()
+    {
+        return $this->belongsTo('App\User', 'updated_user_id');
+    }
 }

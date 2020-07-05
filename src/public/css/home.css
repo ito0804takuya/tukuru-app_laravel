@@ -1,0 +1,99 @@
+.topPage {
+  margin: 80px auto 0;
+  display: flex;
+}
+
+.topPage .left {
+  width: 250px;
+}
+
+.topPage .left ul.sidenav {
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: relative;
+  overflow: auto;
+}
+
+.topPage .left ul.sidenav li a {
+  display: block;
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.topPage .left ul.sidenav li a.active {
+  background-color: #d85358;
+  color: white;
+}
+
+.topPage .left ul.sidenav li a:hover:not(.active) {
+  opacity: 0.7;
+  background-color: #9ac8e2;
+}
+
+.topPage .right {
+  width: calc(100% - 250px);
+}
+
+.topPage .right .title {
+  margin: 0 0 20px;
+}
+
+.topPage .right p {
+  display: inline-block;
+}
+
+.topPage .right table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 1100px;
+}
+
+.topPage .right th {
+  text-align: center;
+  color: white;
+  background: #5484bb;
+  width: 10%;
+  padding: 10px 0;
+}
+
+.topPage .right tr.lovelyrow {
+  background-color: #fdfdfd;
+}
+
+.topPage .right tr.lovelyrow:nth-child(odd) {
+  background-color: #eee;
+}
+
+.topPage .right tr.lovelyrow:hover {
+  opacity: 0.7;
+  background-color: #9ac8e2;
+  cursor: pointer;
+}
+
+.topPage .right td {
+  text-align: center;
+  border-left: 1px solid #a8b7c5;
+  border-bottom: 1px solid #a8b7c5;
+  border-top: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 120px;
+  width: 10%;
+  max-width: 15%;
+  padding: 10px 0;
+}
+
+.topPage .right td:last-child {
+  border-right: 1px solid #a8b7c5;
+}
+
+.topPage .right td.product-name {
+  width: 25%;
+  max-width: 25%;
+}
+
