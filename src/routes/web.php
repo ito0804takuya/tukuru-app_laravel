@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'ProductsController@index');
-
+Route::get('/parts', 'PartsController@index');
 Auth::routes();
 
 
