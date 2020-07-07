@@ -1,4 +1,4 @@
-.createProductPage {
+.createPartPage {
   margin-top: 70px;
   .title {
     margin: 0;
@@ -48,16 +48,6 @@
       }
     }
   }
-  .create-part-form {
-    padding-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 550px;
-    .product-info {
-      margin: 0 auto;
-      width: 100%;
-    }
-  }
   .new_user {
     .form-group {
       max-width: 500px;
@@ -72,26 +62,26 @@
         margin-top: 5px;
       }
     }
-    .loginBtn {
-      padding: 12px;
-      width: 200px;
-      border-radius: 21px;
-      background: #29b744;
-      color: #fff;
-      text-align: center;
+  .loginBtn {
+    padding: 12px;
+    width: 200px;
+    border-radius: 21px;
+    background: #29b744;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    margin-top: 20px;
+    opacity: 1;
+    transition: opacity .5s;
+    cursor: pointer;
+    &:hover {
+      opacity: .7;
       text-decoration: none;
-      border: none;
-      margin-top: 20px;
-      opacity: 1;
-      transition: opacity .5s;
-      cursor: pointer;
-      &:hover {
-        opacity: .7;
-        text-decoration: none;
-      }
     }
   }
 }
+
 .note-mark {
   background-color: red;
   border-radius: 4px;

@@ -18,4 +18,9 @@ class ProductsController extends Controller
         }
         return redirect('/login');
     }
+
+    public function create() {
+        $parts = DB::table('parts')->get();
+        return view('products.create', ['parts' => $parts]);
+    }
 }

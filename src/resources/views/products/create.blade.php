@@ -3,7 +3,7 @@
 @section('content')
 <div class="createProductPage">
     <div class='container'>
-        <h2 class='title'>商品登録</h2>
+        <h2 class='title'><i class="fas fa-car"></i> 商品登録</h2>
         <form class="new_user" action="/products/store" accept-charset="UTF-8" method="post">
             @csrf
             <div class="create-product-form">
