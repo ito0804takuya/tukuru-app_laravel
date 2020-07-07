@@ -29,9 +29,35 @@
   }
   .right {
     width: calc(100% - 250px);
-    .title {
+    
+    .title-area {
       margin: 0 0 20px;
+      .title {
+        display: inline-block;
+        font-size: 28px;
+        margin: 0 30px 0 0;
+        vertical-align: middle;
+      }
+      .create-product-btn {
+        border: none;
+        border-radius: 18px;
+        background: #29b744;
+        color: #fff;
+        opacity: 1;
+        padding: 10px;
+        text-align: center;  
+        text-decoration: none;
+        transition: opacity .5s;
+        width: 220px;
+        cursor: pointer;
+        vertical-align: middle;
+        &:hover {
+          opacity: .7;
+          text-decoration: none;
+        }
+      }
     }
+
     p {
       display: inline-block;
     }

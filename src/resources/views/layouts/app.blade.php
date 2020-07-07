@@ -36,7 +36,7 @@
 <body>
     <header class="header">
         <div class='header__logo'>
-            <a class='tukuru-logo' href="/">TUKURU</a>
+            <a class='tukuru-logo' href="/products">TUKURU</a>
         </div>
         <div class='header__text'>商品と部品の管理システム</div>
         @auth

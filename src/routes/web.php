@@ -12,7 +12,12 @@
 */
 
 Route::get('/', 'ProductsController@index');
+Route::get('/products', 'ProductsController@index');
+Route::get('/products/create', 'ProductsController@create');
+Route::post('/products/store', 'ProductsController@store');
+
 Route::get('/parts', 'PartsController@index');
+Route::get('/parts/create', 'PartsController@create');
 Auth::routes();
 
 

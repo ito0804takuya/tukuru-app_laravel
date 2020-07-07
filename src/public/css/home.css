@@ -38,8 +38,35 @@
   width: calc(100% - 250px);
 }
 
-.topPage .right .title {
+.topPage .right .title-area {
   margin: 0 0 20px;
+}
+
+.topPage .right .title-area .title {
+  display: inline-block;
+  font-size: 28px;
+  margin: 0 30px 0 0;
+  vertical-align: middle;
+}
+
+.topPage .right .title-area .create-product-btn {
+  border: none;
+  border-radius: 18px;
+  background: #29b744;
+  color: #fff;
+  opacity: 1;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: opacity 0.5s;
+  width: 220px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.topPage .right .title-area .create-product-btn:hover {
+  opacity: 0.7;
+  text-decoration: none;
 }
 
 .topPage .right p {

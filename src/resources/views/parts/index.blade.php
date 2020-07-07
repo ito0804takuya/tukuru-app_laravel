@@ -4,9 +4,9 @@
 <div class="topPage">
     <div class="left">
         <ul class="sidenav">
-            <li><a href="/">商品一覧</a></li>
-            <li><a class="active" href="/">部品一覧</a></li>
-            <li><a href="/">About</a></li>
+            <li><a href="/products">商品一覧</a></li>
+            <li><a class="active" href="/parts">部品一覧</a></li>
+            <li><a href="/products">About</a></li>
         </ul>
     </div>
     <div class="right">
@@ -35,7 +35,7 @@
                 <th>最終更新日</th>
             </tr>
             @foreach($parts as $part)
-            <tr class="lovelyrow" onclick="location.href='/'">
+            <tr class="lovelyrow" onclick="location.href='/products'">
                 <td class="product-name">{{$part->name}}</td>
                 <td>{{$part->supplier->name}}</td>
                 <td>{{$part->createdUser->name}}</td>
