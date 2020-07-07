@@ -4,13 +4,17 @@
 <div class="topPage">
     <div class="left">
         <ul class="sidenav">
-            <li><a class="active" href="/">商品一覧</a></li>
+            <li><a class="active" href="/products">商品一覧</a></li>
             <li><a href="/parts">部品一覧</a></li>
-            <li><a href="/">About</a></li>
+            <li><a href="/products">About</a></li>
         </ul>
     </div>
     <div class="right">
-        <h3 class="title">商品一覧</h3>
+        <div class='title-area'>
+            <p class='title'>商品一覧</p>
+            <a class="create-product-btn" href="/products/create">商品を新規登録</a>
+        </div>
+
         <p class="test">商品名検索</p>
         <p class="test">入力ボックス</p>
         <p class="test">部品名検索</p>
@@ -35,7 +39,7 @@
                 <th>最終更新日</th>
             </tr>
             @foreach($products as $product)
-            <tr class="lovelyrow" onclick="location.href='/'">
+            <tr class="lovelyrow" onclick="location.href='/products'">
                 <td class="product-name">{{$product->name}}</td>
                 <td>{{$product->product_code}}</td>
                 <td>{{$product->createdUser->name}}</td>
