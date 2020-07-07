@@ -1,0 +1,106 @@
+.createProductPage {
+  margin-top: 70px;
+}
+
+.createProductPage .title {
+  margin: 0;
+  text-align: center;
+}
+
+.createProductPage .create-product-form {
+  background-color: #deebf3;
+  border-radius: 20px;
+  display: flex;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.createProductPage .create-product-form h3 {
+  margin: 20px 0;
+}
+
+.createProductPage .create-product-form .product-info {
+  margin: 0 auto;
+  width: 45%;
+}
+
+.createProductPage .create-product-form .product-info .form-group label {
+  margin: 0;
+  vertical-align: middle;
+}
+
+.createProductPage .create-product-form .product-info .form-group input {
+  margin-top: 5px;
+}
+
+.createProductPage .create-product-form .parts-info {
+  margin: 0 auto;
+  width: 45%;
+}
+
+.createProductPage .create-product-form .parts-info h3 {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.createProductPage .create-product-form .parts-info .note {
+  color: gray;
+  display: inline;
+  vertical-align: middle;
+}
+
+.createProductPage .create-product-form .parts-info .parts-select {
+  display: flex;
+  height: 30px;
+  padding: 10px 10px 0;
+}
+
+.createProductPage .create-product-form .parts-info .parts-select .parts-name {
+  padding: 0 5px;
+}
+
+.createProductPage .new_user .form-group {
+  max-width: 500px;
+  margin: 0 auto 1rem;
+}
+
+.createProductPage .new_user .form-group .form-control {
+  background: #f6f8fa;
+}
+
+.createProductPage .loginBtn {
+  padding: 12px;
+  width: 200px;
+  border-radius: 21px;
+  background: #29b744;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  margin-top: 20px;
+  opacity: 1;
+  transition: opacity 0.5s;
+  cursor: pointer;
+}
+
+.createProductPage .loginBtn:hover {
+  opacity: 0.7;
+  text-decoration: none;
+}
+
+.note-mark {
+  background-color: red;
+  border-radius: 4px;
+  color: white;
+  display: inline;
+  font-size: 12px;
+  padding: 1px 3px;
+  vertical-align: middle;
+}
+
+.line {
+  margin: 0 auto;
+  width: 1px;
+  background-color: #a8b7c5;
+}
+

@@ -1,0 +1,93 @@
+.createProductPage {
+  margin-top: 70px;
+  .title {
+    margin: 0;
+    text-align: center;
+  }
+  .create-product-form {
+    background-color: rgb(222, 235, 243);
+    border-radius: 20px;
+    display: flex;
+    padding: 20px;
+    margin-top: 20px;
+    h3 {
+      margin: 20px 0;
+    }
+    .product-info {
+      margin: 0 auto;
+      width: 45%;
+      .form-group {
+        label {
+          margin: 0;
+          vertical-align: middle;
+        }
+        input {
+          margin-top: 5px;
+        }
+      }
+    }
+    .parts-info {
+      margin: 0 auto;
+      width: 45%;
+      h3 {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .note {
+        color: gray;
+        display: inline;
+        vertical-align: middle;
+      }
+      .parts-select {
+        display: flex;
+        height: 30px;
+        padding: 10px 10px 0;
+        .parts-name {
+          padding: 0 5px;
+        }
+      }
+    }
+  }
+  .new_user {
+    .form-group {
+      max-width: 500px;
+      margin: 0 auto 1rem;
+      .form-control {
+        background: #f6f8fa;
+      }
+    }
+  }
+  .loginBtn {
+    padding: 12px;
+    width: 200px;
+    border-radius: 21px;
+    background: #29b744;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    margin-top: 20px;
+    opacity: 1;
+    transition: opacity .5s;
+    cursor: pointer;
+    &:hover {
+      opacity: .7;
+      text-decoration: none;
+    }
+  }
+}
+
+.note-mark {
+  background-color: red;
+  border-radius: 4px;
+  color: white;
+  display: inline;
+  font-size: 12px;
+  padding: 1px 3px;
+  vertical-align: middle;
+}
+.line {
+  margin: 0 auto;
+  width: 1px;
+  background-color: #a8b7c5;
+}
