@@ -4,14 +4,14 @@
 <div class="topPage">
     <div class="left">
         <ul class="sidenav">
-            <li><a class="active" href="/products">商品一覧</a></li>
-            <li><a href="/parts">部品一覧</a></li>
+            <li><a class="active" href="/products"><i class="fas fa-car"></i> 商品一覧</a></li>
+            <li><a href="/parts"><i class="fas fa-wrench"></i> 部品一覧</a></li>
             <li><a href="/products">About</a></li>
         </ul>
     </div>
     <div class="right">
         <div class='title-area'>
-            <p class='title'>商品一覧</p>
+            <p class='title'><i class="fas fa-car"></i> 商品一覧</p>
             <a class="create-product-btn" href="/products/create">商品を新規登録</a>
         </div>
 

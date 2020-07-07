@@ -59,6 +59,18 @@
   padding: 0 5px;
 }
 
+.createProductPage .create-part-form {
+  padding-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 550px;
+}
+
+.createProductPage .create-part-form .product-info {
+  margin: 0 auto;
+  width: 100%;
+}
+
 .createProductPage .new_user .form-group {
   max-width: 500px;
   margin: 0 auto 1rem;
@@ -68,7 +80,14 @@
   background: #f6f8fa;
 }
 
-.createProductPage .loginBtn {
+.createProductPage .new_user .form-group select {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  padding: 7px;
+  margin-top: 5px;
+}
+
+.createProductPage .new_user .loginBtn {
   padding: 12px;
   width: 200px;
   border-radius: 21px;
@@ -83,7 +102,7 @@
   cursor: pointer;
 }
 
-.createProductPage .loginBtn:hover {
+.createProductPage .new_user .loginBtn:hover {
   opacity: 0.7;
   text-decoration: none;
 }
