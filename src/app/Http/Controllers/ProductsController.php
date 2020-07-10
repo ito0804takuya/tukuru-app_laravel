@@ -23,4 +23,12 @@ class ProductsController extends Controller
         $parts = DB::table('parts')->get();
         return view('products.create', ['parts' => $parts]);
     }
+
+    public function show($id) {
+        $product = Product::find($id)
+                ->with('createdUser')
+                ->with('updatedUser')->first();
+        $parts = $product->parts()->get();
+        return view('products.show', ['product' => $product, 'parts' => $parts]);
+    }
 }
