@@ -27,7 +27,8 @@ class ProductsController extends Controller
     public function show($id) {
         $product = Product::find($id)
                 ->with('createdUser')
-                ->with('updatedUser')->get();
-        return view('products.show', ['product' => $product]);
+                ->with('updatedUser')->first();
+        $parts = $product->parts()->get();
+        return view('products.show', ['product' => $product, 'parts' => $parts]);
     }
 }

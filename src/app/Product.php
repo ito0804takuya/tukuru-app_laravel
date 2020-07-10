@@ -8,7 +8,7 @@ class Product extends Model
 {
     public function parts()
     {
-        return $this->belongsToMany('App\Part');
+        return $this->belongsToMany('App\Part', 'product_parts');
     }
 
     public function createdUser()

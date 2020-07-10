@@ -1,0 +1,105 @@
+.show-product {
+  margin: 80px auto 0;
+  width: 1000px;
+  .product-info {
+    padding: 20px;
+    margin-top: 10px;
+    .top {
+      display: flex;
+      width: 100%;
+      h3 {
+        display: inline;
+        line-height: 30px;
+      }
+      .bottons {
+        display: flex;
+        margin-left: auto;
+      }
+    }
+    .main {
+      display: flex;
+      margin-top: 10px;
+      .left {
+        display: flex;
+        .image {
+          height: 200px;
+          margin-right: 40px;
+          width: 200px;
+          border: 1px solid rgb(150, 147, 147);
+        }
+        table {
+          border-collapse: collapse;
+          border-spacing: 0;
+          margin-right: 80px;
+        }
+        th {
+          text-align: center;
+          color:white;
+          background: rgb(84, 132, 187);
+          padding: 10px;
+        }
+        td {
+          text-align: center;
+          border: 1px solid #a8b7c5;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          height: 30px;
+          min-width: 100px;
+          padding: 10px;
+          &:last-child {
+            border-right: 1px solid #a8b7c5;
+          }
+        }
+        .parts {
+          background-color: rgb(241, 241, 241);
+          border-radius: 10px;
+          padding: 0 20px;
+          min-width: 300px;
+          .parts-name {
+            color: black;
+            display: block;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+.edit-btn {
+  border: none;
+  border-radius: 10px;
+  background: rgb(134, 221, 255);
+  color: rgb(65, 65, 65);
+  height: 30px;
+  line-height: 30px;
+  opacity: 1;
+  text-align: center;
+  text-decoration: none;
+  transition: opacity .5s;
+  width: 60px;
+  cursor: pointer;
+  &:hover {
+    opacity: .7;
+    text-decoration: none;
+  }
+}
+.delete-btn {
+  border: none;
+  border-radius: 10px;
+  background: red;
+  color: #fff;
+  height: 30px;
+  line-height: 30px;
+  margin-left: 10px;
+  opacity: 1;
+  text-align: center;  
+  text-decoration: none;
+  transition: opacity .5s;
+  width: 60px;
+  cursor: pointer;
+  &:hover {
+    opacity: .7;
+    text-decoration: none;
+  }
+}
