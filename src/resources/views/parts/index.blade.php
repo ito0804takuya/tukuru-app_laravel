@@ -12,7 +12,7 @@
     <div class="right">
         <div class='title-area'>
             <p class='title'><i class="fas fa-wrench"></i> 部品一覧</p>
-            <a class="create-product-btn" href="/parts/create">部品を新規登録</a>
+            <a class="create-product-btn" href="/parts/create"><i class="fas fa-plus"></i> 部品を新規登録</a>
         </div>
         <p class="test">部品名検索</p>
         <p class="test">入力ボックス</p>

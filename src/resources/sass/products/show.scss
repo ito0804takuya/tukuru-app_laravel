@@ -4,6 +4,8 @@
   .product-info {
     padding: 20px;
     margin-top: 10px;
+    background-color: rgb(231, 243, 252);
+    border-radius: 10px;
     .top {
       display: flex;
       width: 100%;
@@ -39,6 +41,7 @@
           padding: 10px;
         }
         td {
+          background-color: white;
           text-align: center;
           border: 1px solid #a8b7c5;
           overflow: hidden;
@@ -52,14 +55,33 @@
           }
         }
         .parts {
-          background-color: rgb(241, 241, 241);
-          border-radius: 10px;
           padding: 0 20px;
-          min-width: 300px;
-          .parts-name {
-            color: black;
-            display: block;
-            text-decoration: none;
+          min-width: 200px;
+          table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+          }
+          tr.lovelyrow {
+            background-color: rgb(253, 253, 253);
+            
+            &:nth-child(odd) {
+              background-color: #eee
+            }
+            &:hover {
+              opacity: .7;
+              background-color: rgb(154, 200, 226);
+              cursor: pointer;
+            }
+          }
+          td {
+            text-align: left;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding: 5px 10px;
           }
         }
       }
@@ -67,10 +89,10 @@
   }
 }
 .edit-btn {
-  border: none;
+  background-color: white;
+  border: 1px solid #5e9ad3;
   border-radius: 10px;
-  background: rgb(134, 221, 255);
-  color: rgb(65, 65, 65);
+  color: #5e9ad3;
   height: 30px;
   line-height: 30px;
   opacity: 1;
@@ -103,3 +125,7 @@
     text-decoration: none;
   }
 }
+*:focus {
+  outline: none;
+}
+a:active { text-decoration:none;}

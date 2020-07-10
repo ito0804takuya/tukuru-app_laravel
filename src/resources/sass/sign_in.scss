@@ -25,10 +25,12 @@
     margin-top: 20px;
     opacity: 1;
     transition: opacity .5s;
+    outline: none;
     cursor: pointer;
     &:hover {
       opacity: .7;
       text-decoration: none;
+      outline: none;
     }
   }
 }

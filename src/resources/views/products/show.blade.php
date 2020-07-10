@@ -9,8 +9,8 @@
                 <h3>{{$product->name}}</h3><br>
             </div>
             <div class='bottons'>
-                <a class='edit-btn' href="/products/edit">編集</a>
-                <a class='delete-btn' href="/products/edit">削除</a>
+                <a class='edit-btn' href="/products/edit"><i class="fas fa-edit"></i> 編集</a>
+                <a class='delete-btn' href="/products/edit"><i class="fas fa-trash-alt"></i> 削除</a>
             </div>
         </div>
         <div class="main">
@@ -40,9 +40,13 @@
                 </table>
                 <div class='parts'>
                     <h4><i class="fas fa-wrench"></i> 構成部品</h4>
-                    @foreach($parts as $part)
-                    <a class="parts-name" href="/parts/{{$part->id}}">・{{$part->name}}</a>
-                    @endforeach
+                    <table>
+                        @foreach($parts as $part)
+                        <tr class="lovelyrow" onclick="location.href='/parts/{{$part->id}}'">
+                            <td>{{$part->name}}</td>
+                        </tr>
+                        @endforeach
+                    </table>
                 </div>
             </div>
         </div>

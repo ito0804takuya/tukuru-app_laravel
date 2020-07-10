@@ -12,7 +12,7 @@
     <div class="right">
         <div class='title-area'>
             <p class='title'><i class="fas fa-car"></i> 商品一覧</p>
-            <a class="create-product-btn" href="/products/create">商品を新規登録</a>
+            <a class="create-product-btn" href="/products/create"><i class="fas fa-plus"></i> 商品を新規登録</a>
         </div>
 
         <p class="test">商品名検索</p>
