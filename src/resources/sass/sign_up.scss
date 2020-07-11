@@ -26,6 +26,7 @@ body {
     border-radius: 90px;
     text-decoration: none;
     transition: opacity .5s;
+    outline: none;
     &:hover {
       opacity: .6;
       text-decoration: none;
