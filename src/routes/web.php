@@ -18,8 +18,7 @@
 Route::resource('products', 'ProductsController');
 Route::get('/', 'ProductsController@index');
 
-Route::get('/parts', 'PartsController@index');
-Route::get('/parts/create', 'PartsController@create');
+Route::resource('parts', 'PartsController');
 Auth::routes();
 
 

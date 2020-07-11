@@ -6,6 +6,8 @@
 .show-product .product-info {
   padding: 20px;
   margin-top: 10px;
+  background-color: #e7f3fc;
+  border-radius: 10px;
 }
 
 .show-product .product-info .top {
@@ -34,7 +36,6 @@
 
 .show-product .product-info .main .left .image {
   height: 200px;
-  margin-right: 40px;
   width: 200px;
   border: 1px solid #969393;
 }
@@ -42,6 +43,7 @@
 .show-product .product-info .main .left table {
   border-collapse: collapse;
   border-spacing: 0;
+  margin-left: 40px;
   margin-right: 80px;
 }
 
@@ -53,6 +55,7 @@
 }
 
 .show-product .product-info .main .left td {
+  background-color: white;
   text-align: center;
   border: 1px solid #a8b7c5;
   overflow: hidden;
@@ -68,23 +71,45 @@
 }
 
 .show-product .product-info .main .left .parts {
-  background-color: #f1f1f1;
-  border-radius: 10px;
   padding: 0 20px;
-  min-width: 300px;
+  min-width: 200px;
 }
 
-.show-product .product-info .main .left .parts .parts-name {
-  color: black;
-  display: block;
-  text-decoration: none;
+.show-product .product-info .main .left .parts table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.show-product .product-info .main .left .parts tr.lovelyrow {
+  background-color: #fdfdfd;
+}
+
+.show-product .product-info .main .left .parts tr.lovelyrow:nth-child(odd) {
+  background-color: #eee;
+}
+
+.show-product .product-info .main .left .parts tr.lovelyrow:hover {
+  opacity: 0.7;
+  background-color: #9ac8e2;
+  cursor: pointer;
+}
+
+.show-product .product-info .main .left .parts td {
+  text-align: left;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 5px 10px;
 }
 
 .edit-btn {
-  border: none;
+  background-color: white;
+  border: 1px solid #5e9ad3;
   border-radius: 10px;
-  background: #86ddff;
-  color: #414141;
+  color: #5e9ad3;
   height: 30px;
   line-height: 30px;
   opacity: 1;
@@ -118,6 +143,14 @@
 
 .delete-btn:hover {
   opacity: 0.7;
+  text-decoration: none;
+}
+
+*:focus {
+  outline: none;
+}
+
+a:active {
   text-decoration: none;
 }
 

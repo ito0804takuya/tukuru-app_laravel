@@ -20,4 +20,12 @@ class PartsController extends Controller
         $suppliers = DB::table('suppliers')->get();
         return view('parts.create', ['suppliers' => $suppliers]);
     }
+    
+    public function show($id) {
+        $part = Part::find($id)
+                ->with('createdUser')
+                ->with('updatedUser')->first();
+        $products = $part->products()->get();
+        return view('parts.show', ['part' => $part, 'products' => $products]);
+    }
 }
