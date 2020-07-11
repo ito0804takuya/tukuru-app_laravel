@@ -36,7 +36,6 @@
 
 .show-product .product-info .main .left .image {
   height: 200px;
-  margin-right: 40px;
   width: 200px;
   border: 1px solid #969393;
 }
@@ -44,6 +43,7 @@
 .show-product .product-info .main .left table {
   border-collapse: collapse;
   border-spacing: 0;
+  margin-left: 40px;
   margin-right: 80px;
 }
 

@@ -38,7 +38,7 @@
                 <th>最終更新日</th>
             </tr>
             @foreach($parts as $part)
-            <tr class="lovelyrow" onclick="location.href='/products'">
+            <tr class="lovelyrow" onclick="location.href='/parts/{{$part->id}}'">
                 <td class="product-name">{{$part->name}}</td>
                 <td>{{$part->supplier->name}}</td>
                 <td>{{$part->createdUser->name}}</td>
