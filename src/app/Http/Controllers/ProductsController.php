@@ -19,16 +19,27 @@ class ProductsController extends Controller
         return redirect('/login');
     }
 
-    public function create() {
+    public function create()
+    {
         $parts = DB::table('parts')->get();
         return view('products.create', ['parts' => $parts]);
     }
 
-    public function show($id) {
+    public function show($id)
+    {
         $product = Product::find($id)
-                ->with('createdUser')
-                ->with('updatedUser')->first();
+            ->with('createdUser')
+            ->with('updatedUser')->first();
         $parts = $product->parts()->get();
         return view('products.show', ['product' => $product, 'parts' => $parts]);
+    }
+
+    public function edit($id)
+    {
+        $product = Product::find($id)
+            ->with('createdUser')
+            ->with('updatedUser')->first();
+        $parts = DB::table('parts')->get();
+        return view('products.edit', ['product' => $product, 'parts' => $parts]);
     }
 }
