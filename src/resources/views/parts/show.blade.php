@@ -9,7 +9,7 @@
                 <h3>{{$part->name}}</h3><br>
             </div>
             <div class='bottons'>
-                <a class='edit-btn' href="/products/edit"><i class="fas fa-edit"></i> 編集</a>
+                <a class='edit-btn' href="/parts/{{$part->id}}/edit"><i class="fas fa-edit"></i> 編集</a>
                 <a class='delete-btn' href="/products/edit"><i class="fas fa-trash-alt"></i> 削除</a>
             </div>
         </div>
