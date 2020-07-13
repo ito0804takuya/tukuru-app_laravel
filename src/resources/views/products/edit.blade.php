@@ -31,7 +31,7 @@
           <div class="note-mark">必須</div><br>
           @foreach($parts as $part)
           <div class="parts-select">
-            <input type="checkbox" name="parts[]" value="{{ $part->id }}" {{ is_array(old("parts")) && in_array($part->id, old("parts"), true) ? 'checked="checked"' : '' }}>
+            <input type="checkbox" name="parts[]" value="{{ $part->id }}" {{ in_array($part->id, $partsIds, true) ? 'checked="checked"' : '' }}>
             <p class="parts-name">{{$part->name}}</p>
           </div>
           @endforeach

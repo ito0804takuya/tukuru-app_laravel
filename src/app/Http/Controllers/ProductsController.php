@@ -27,19 +27,16 @@ class ProductsController extends Controller
 
     public function show($id)
     {
-        $product = Product::find($id)
-            ->with('createdUser')
-            ->with('updatedUser')->first();
+        $product = Product::with(['createdUser', 'updatedUser'])->find($id);
         $parts = $product->parts()->get();
         return view('products.show', ['product' => $product, 'parts' => $parts]);
     }
 
     public function edit($id)
     {
-        $product = Product::find($id)
-            ->with('createdUser')
-            ->with('updatedUser')->first();
+        $product = Product::with(['createdUser', 'updatedUser'])->find($id);
         $parts = DB::table('parts')->get();
-        return view('products.edit', ['product' => $product, 'parts' => $parts]);
+        $partsIds = $product->parts->pluck('id')->toArray();
+        return view('products.edit', ['product' => $product, 'parts' => $parts, 'partsIds' => $partsIds]);
     }
 }
