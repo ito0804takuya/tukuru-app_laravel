@@ -11,12 +11,9 @@ class ProductsController extends Controller
 {
     public function index()
     {
-        if (Auth::check()) {
-            $products = Product::with('createdUser')
-                ->with('updatedUser')->get();
-            return view('home', ['products' => $products]);
-        }
-        return redirect('/login');
+        $products = Product::with('createdUser')
+            ->with('updatedUser')->get();
+        return view('home', ['products' => $products]);
     }
 
     public function create()
