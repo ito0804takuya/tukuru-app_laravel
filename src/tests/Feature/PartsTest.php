@@ -40,14 +40,16 @@ class PartsTest extends TestCase
     public function testStore()
     {
         $response = $this->actingAs($this->user)
-            ->post('/parts', [
+            ->post(route('parts.store'), [
                 'name' => 'testパーツ',
-                'supplier_id' => 1
+                'supplier_id' => 1,
+                'created_user_id' => 1,
+                'updated_user_id' => null
             ]);
         $this->assertDatabaseHas('parts', [
             'name' => 'testパーツ'
         ]);
         $response->assertStatus(200)
-            ->assertViewIs('parts.index');
+            ->assertRedirect('/parts');
     }
 }
