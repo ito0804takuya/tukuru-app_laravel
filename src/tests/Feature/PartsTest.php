@@ -49,7 +49,6 @@ class PartsTest extends TestCase
         $this->assertDatabaseHas('parts', [
             'name' => 'testパーツ'
         ]);
-        $response->assertStatus(200)
-            ->assertRedirect('/parts');
+        $response->assertRedirect('/parts');
     }
 }
