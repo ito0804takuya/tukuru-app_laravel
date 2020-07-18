@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PartRequest;
 use App\Part;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class PartsController extends Controller
@@ -20,6 +22,18 @@ class PartsController extends Controller
     {
         $suppliers = DB::table('suppliers')->get();
         return view('parts.create', ['suppliers' => $suppliers]);
+    }
+
+    public function store(PartRequest $request)
+    {
+        $part = new Part;
+        $part->fill([
+            'name' => $request->name,
+            'supplier_id' => $request->supplier_id,
+            'created_user_id' => Auth::id(),
+            'updated_user_id' => null
+        ])->save();
+        return redirect('/parts');
     }
 
     public function show(int $id)

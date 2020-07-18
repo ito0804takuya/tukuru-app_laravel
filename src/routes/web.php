@@ -11,14 +11,10 @@
 |
 */
 
+Route::group(['middleware' => 'auth'], function() {
+  Route::resource('products', 'ProductsController');
+  Route::get('/', 'ProductsController@index');
+  Route::resource('parts', 'PartsController');
+});
 
-// Route::get('/products', 'ProductsController@index');
-// Route::get('/products/create', 'ProductsController@create');
-// Route::post('/products/store', 'ProductsController@store');
-Route::resource('products', 'ProductsController');
-Route::get('/', 'ProductsController@index');
-
-Route::resource('parts', 'PartsController');
 Auth::routes();
-
-

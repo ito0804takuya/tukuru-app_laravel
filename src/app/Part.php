@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Part extends Model
 {
+    protected $fillable = [
+        'name',
+        'supplier_id',
+        'created_user_id',
+        'updated_user_id'
+    ];
+
     public function products()
     {
         return $this->belongsToMany('App\Product', 'product_parts');

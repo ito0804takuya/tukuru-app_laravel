@@ -18,7 +18,7 @@ class CreatePartsTable extends Migration
             $table->string('name')->unique();
             $table->integer('supplier_id');
             $table->integer('created_user_id');
-            $table->integer('updated_user_id');
+            $table->integer('updated_user_id')->nullable();
             $table->timestamps();
         });
     }

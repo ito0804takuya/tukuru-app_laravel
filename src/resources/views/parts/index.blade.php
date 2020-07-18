@@ -43,7 +43,7 @@
                 <td>{{$part->supplier->name}}</td>
                 <td>{{$part->createdUser->name}}</td>
                 <td>{{$part->created_at}}</td>
-                <td>{{$part->updatedUser->name}}</td>
+                <td>{{isset($part->updatedUser->name) ? $part->updatedUser->name : ''}}</td>
                 <td>{{$part->updated_at}}</td>
             </tr>
             @endforeach
