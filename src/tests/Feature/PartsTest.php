@@ -40,7 +40,7 @@ class PartsTest extends TestCase
     public function testStore()
     {
         $response = $this->actingAs($this->user)
-            ->post(route('parts.store'), [
+            ->post('/parts', [
                 'name' => 'testパーツ',
                 'supplier_id' => 1,
                 'created_user_id' => 1,
