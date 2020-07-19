@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name')->unique();
             $table->integer('created_user_id');
-            $table->integer('updated_user_id');
+            $table->integer('updated_user_id')->nullable();
             $table->timestamps();
         });
     }

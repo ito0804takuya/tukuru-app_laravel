@@ -12,9 +12,9 @@ class ProductsTableSeeder extends Seeder
     public function run()
     {
         DB::table('products')->insert([
-            ['name' => 'エアコン', 'product_code' => 'SD-KNDJN', 'created_user_id' => 1, 'updated_user_id' => 1],
-            ['name' => '洗濯機', 'product_code' => 'SD-KNDJN', 'created_user_id' => 1, 'updated_user_id' => 1],
-            ['name' => '掃除機', 'product_code' => 'SD-KNDJN', 'created_user_id' => 1, 'updated_user_id' => 1],
+            ['name' => 'エアコン', 'product_code' => 'SD-KNDJN', 'image' => 'test_image', 'created_user_id' => 1, 'updated_user_id' => 1],
+            ['name' => '洗濯機', 'product_code' => 'SD-KNDJN', 'image' => 'test_image', 'created_user_id' => 1, 'updated_user_id' => 1],
+            ['name' => '掃除機', 'product_code' => 'SD-KNDJN', 'image' => 'test_image', 'created_user_id' => 1, 'updated_user_id' => 1],
         ]);
     }
 }
