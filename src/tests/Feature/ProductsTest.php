@@ -43,6 +43,7 @@ class ProductsTest extends TestCase
             ->post('/products', [
                 'name' => 'test商品',
                 'product_code' => 'SD-KNDJN',
+                'image' => 'test画像',
                 'created_user_id' => 1,
                 'updated_user_id' => 1
             ]);

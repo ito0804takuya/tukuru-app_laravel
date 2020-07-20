@@ -97,8 +97,7 @@
 
 .show-product .product-info .main .left .parts td {
   text-align: left;
-  border: none;
-  border-radius: 10px;
+  border: 1px solid #a8b7c5;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

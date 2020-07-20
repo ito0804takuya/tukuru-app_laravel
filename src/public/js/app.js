@@ -49707,6 +49707,47 @@ var app = new Vue({
 
 /***/ }),
 
+/***/ "./resources/js/assets/image_upload.js":
+/*!*********************************************!*\
+  !*** ./resources/js/assets/image_upload.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  var view_box = $('.preview_box');
+  $(".file").on('change', function () {
+    var fileprop = $(this).prop('files')[0],
+        find_img = $(this).next('img'),
+        fileRdr = new FileReader();
+
+    if (find_img.length) {
+      find_img.nextAll().remove();
+      find_img.remove();
+    }
+
+    var img = '<img width="250" alt="" class="img_view"><br><a href="#" class="img_del">画像を削除</a>';
+    view_box.append(img);
+
+    fileRdr.onload = function () {
+      view_box.find('img').attr('src', fileRdr.result);
+      img_del(view_box);
+    };
+
+    fileRdr.readAsDataURL(fileprop);
+  });
+
+  function img_del(target) {
+    target.find("a.img_del").on('click', function () {
+      $(this).parent().find('input[type=file]').val('');
+      $(this).parent().find('.img_view, br').remove();
+      $(this).remove();
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
@@ -49899,13 +49940,14 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!***********************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/sign_up.scss ./resources/sass/sign_in.scss ./resources/sass/header.scss ./resources/sass/home.scss ./resources/sass/products/create.scss ./resources/sass/products/show.scss ***!
-  \***********************************************************************************************************************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/js/assets/image_upload.js ./resources/sass/app.scss ./resources/sass/sign_up.scss ./resources/sass/sign_in.scss ./resources/sass/header.scss ./resources/sass/home.scss ./resources/sass/products/create.scss ./resources/sass/products/show.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/itotakuya/projects/tukuru-app_laravel/src/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Users/itotakuya/projects/tukuru-app_laravel/src/resources/js/assets/image_upload.js */"./resources/js/assets/image_upload.js");
 __webpack_require__(/*! /Users/itotakuya/projects/tukuru-app_laravel/src/resources/sass/app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! /Users/itotakuya/projects/tukuru-app_laravel/src/resources/sass/sign_up.scss */"./resources/sass/sign_up.scss");
 __webpack_require__(/*! /Users/itotakuya/projects/tukuru-app_laravel/src/resources/sass/sign_in.scss */"./resources/sass/sign_in.scss");
