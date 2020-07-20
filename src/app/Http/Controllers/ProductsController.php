@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\DB;
@@ -20,6 +21,23 @@ class ProductsController extends Controller
     {
         $parts = DB::table('parts')->get();
         return view('products.create', ['parts' => $parts]);
+    }
+
+    public function store(ProductRequest $request)
+    {
+        $product = new Product;
+        $filename = $request->image->store('public/images');
+        $result = $product->fill([
+            'name' => $request->name,
+            'product_code' => $request->product_code,
+            'image' => basename($filename),
+            'created_user_id' => Auth::id(),
+            'updated_user_id' => null
+        ])->save();
+        if ($result) {
+            $product->parts()->attach($request->parts);
+        }
+        return redirect('/');
     }
 
     public function show($id)

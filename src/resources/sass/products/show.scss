@@ -25,7 +25,6 @@
         display: flex;
         .image {
           height: 200px;
-          
           width: 200px;
           border: 1px solid rgb(150, 147, 147);
         }
@@ -77,8 +76,7 @@
           }
           td {
             text-align: left;
-            border: none;
-            border-radius: 10px;
+            border: 1px solid #a8b7c5;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;

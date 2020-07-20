@@ -15,7 +15,7 @@
         </div>
         <div class="main">
             <div class='left'>
-                <div class='image'></div>
+                <img class='image' src="{{ asset('storage/images/' . $product->image) }}" alt="" />
                 <table>
                     <tr>
                         <th>商品コード</th>
@@ -31,7 +31,7 @@
                     </tr>
                     <tr>
                         <th>最終更新者</th>
-                        <td>{{$product->updatedUser->name}}</td>
+                        <td>{{isset($product->updatedUser->name) ? $product->updatedUser->name : ''}}</td>
                     </tr>
                     <tr>
                         <th>最終更新日</th>

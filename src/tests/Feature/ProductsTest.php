@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\User;
 
-class PartsTest extends TestCase
+class ProductsTest extends TestCase
 {
     use DatabaseTransactions;
 
@@ -26,12 +26,12 @@ class PartsTest extends TestCase
     public function testIndex()
     {
         // ログインしていないとリダイレクトすることを確認
-        $response = $this->get('/parts');
+        $response = $this->get('/');
         $response->assertStatus(302);
 
-        $response = $this->actingAs($this->user)->get('/parts');
+        $response = $this->actingAs($this->user)->get('/');
         $response->assertStatus(200)
-            ->assertViewIs('parts.index');
+            ->assertViewIs('home');
     }
 
     /**
@@ -40,15 +40,16 @@ class PartsTest extends TestCase
     public function testStore()
     {
         $response = $this->actingAs($this->user)
-            ->post('/parts', [
-                'name' => 'testパーツ',
-                'supplier_id' => 1,
+            ->post('/products', [
+                'name' => 'test商品',
+                'product_code' => 'SD-KNDJN',
+                'image' => 'test画像',
                 'created_user_id' => 1,
-                'updated_user_id' => null
+                'updated_user_id' => 1
             ]);
-        $this->assertDatabaseHas('parts', [
-            'name' => 'testパーツ'
+        $this->assertDatabaseHas('products', [
+            'name' => 'test商品'
         ]);
-        $response->assertRedirect('/parts');
+        $response->assertRedirect('/');
     }
 }

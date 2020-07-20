@@ -28,6 +28,5 @@ class PartRequest extends FormRequest
             'supplier_id.requied' => '仕入先は必ず指定してください',
             'supplier_id.exists' => '指定された仕入先が存在しません',
         ];
-
     }
 }

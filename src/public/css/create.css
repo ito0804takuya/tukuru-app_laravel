@@ -123,3 +123,19 @@
   background-color: #a8b7c5;
 }
 
+.img_view {
+  margin: 8px 0;
+}
+
+.img_del {
+  background-color: #ccc;
+  border-radius: 4px;
+  color: blue;
+  display: inline;
+  font-size: 12px;
+  padding: 3px 5px;
+  vertical-align: middle;
+  text-decoration: none;
+  cursor: pointer;
+}
+
