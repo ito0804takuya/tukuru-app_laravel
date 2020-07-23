@@ -128,7 +128,7 @@
   border: none;
   border-radius: 10px;
   background: red;
-  color: #fff;
+  color: #fff !important;
   height: 30px;
   line-height: 30px;
   margin-left: 10px;
@@ -143,6 +143,10 @@
 .delete-btn:hover {
   opacity: 0.7;
   text-decoration: none;
+}
+
+.delete-btn a {
+  color: #fff !important;
 }
 
 *:focus {

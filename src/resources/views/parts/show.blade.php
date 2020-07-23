@@ -10,9 +10,18 @@
             </div>
             <div class='bottons'>
                 <a class='edit-btn' href="/parts/{{$part->id}}/edit"><i class="fas fa-edit"></i> 編集</a>
-                <a class='delete-btn' href="/products/edit"><i class="fas fa-trash-alt"></i> 削除</a>
+                @if ($part->products->count())
+                <a class='delete-btn' onclick="return window.confirm('削除できません');"><i class="fas fa-trash-alt"></i> 削除</a>
+                @else
+                <form class='delete-btn' method="post" name="delete_form" action="{{ route('parts.destroy', $part->id) }}">
+                    @csrf
+                    {{ method_field('DELETE') }}
+                    <a href="javascript:delete_form.submit()" onclick="return window.confirm('削除しますか？');"><i class="fas fa-trash-alt"></i> 削除</a>
+                </form>
+                @endif
             </div>
         </div>
+        {{ session('result') }}
         <div class="main">
             <div class='left'>
                 <table>
@@ -30,7 +39,7 @@
                     </tr>
                     <tr>
                         <th>最終更新者</th>
-                        <td>{{$part->updatedUser->name}}</td>
+                        <td>{{isset($part->updatedUser->name) ? $part->updatedUser->name : ''}}</td>
                     </tr>
                     <tr>
                         <th>最終更新日</th>
@@ -51,5 +60,4 @@
         </div>
     </div>
 </div>
-
 @endsection
