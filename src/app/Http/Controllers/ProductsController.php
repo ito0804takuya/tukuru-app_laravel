@@ -54,4 +54,12 @@ class ProductsController extends Controller
         $partsIds = $product->parts->pluck('id')->toArray();
         return view('products.edit', ['product' => $product, 'parts' => $parts, 'partsIds' => $partsIds]);
     }
+
+    public function destroy($id)
+    {
+        $product = Product::with(['parts'])->find($id);
+        $product->parts()->detach();
+        $product->delete();
+        return redirect('/');
+    }
 }

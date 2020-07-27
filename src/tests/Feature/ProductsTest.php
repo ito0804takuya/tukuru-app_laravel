@@ -5,8 +5,11 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Http\UploadedFile;
 use Tests\TestCase;
 use App\User;
+use App\Product;
+use Illuminate\Support\Str;
 
 class ProductsTest extends TestCase
 {
@@ -39,17 +42,36 @@ class ProductsTest extends TestCase
      */
     public function testStore()
     {
+        \Storage::fake('files');
+        $file = UploadedFile::fake()->image('test.jpg');
+        $name = Str::random(10);
         $response = $this->actingAs($this->user)
             ->post('/products', [
-                'name' => 'test商品',
+                'name' => $name,
                 'product_code' => 'SD-KNDJN',
-                'image' => 'test画像',
-                'created_user_id' => 1,
-                'updated_user_id' => 1
+                'image' => $file
             ]);
         $this->assertDatabaseHas('products', [
-            'name' => 'test商品'
+            'name' => $name
         ]);
         $response->assertRedirect('/');
+    }
+
+    /**
+     * @return void
+     */
+    public function testDestroy()
+    {
+        $product = factory(Product::class)->create();
+        $this->assertDatabaseHas('products', [
+            'id' => $product->id
+        ]);
+        $response = $this->actingAs($this->user)
+            ->delete('/products/' . $product->id);
+        $response->assertRedirect('/');
+        $this->assertDatabaseMissing('products', [
+            'id' => $product->id
+        ]);
+        
     }
 }
