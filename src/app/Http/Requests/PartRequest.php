@@ -3,9 +3,15 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class PartRequest extends FormRequest
 {
+    public function authorize()
+    {
+        return true;
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -14,7 +20,11 @@ class PartRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|unique:parts,name',
+            'name' => [
+                'required',
+                'string',
+                Rule::unique('parts')->ignore($this->part_id),
+            ],
             'supplier_id' => 'required|exists:suppliers,id'
         ];
     }

@@ -51,6 +51,20 @@ class PartsController extends Controller
         return view('parts.edit', ['part' => $part, 'suppliers' => $suppliers]);
     }
 
+    public function update(PartRequest $request, $id)
+    {
+        DB::transaction(function () use ($request, $id) {
+            $part = Part::find($id);
+            $part->fill([
+                'name' => $request->name,
+                'supplier_id' => $request->supplier_id,
+                'created_user_id' => Auth::id(),
+                'updated_user_id' => Auth::id()
+            ])->save();
+        });
+        return redirect(route('parts.show', ['part' => $id]));
+    }
+
     public function destroy(Part $part)
     {
         // この部品を使用している商品が存在しない場合、削除できる
