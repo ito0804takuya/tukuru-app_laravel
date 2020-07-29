@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\User;
+use App\Part;
 
 class PartsTest extends TestCase
 {
@@ -42,13 +43,29 @@ class PartsTest extends TestCase
         $response = $this->actingAs($this->user)
             ->post('/parts', [
                 'name' => 'testパーツ',
-                'supplier_id' => 1,
-                'created_user_id' => 1,
-                'updated_user_id' => null
+                'supplier_id' => 1
             ]);
         $this->assertDatabaseHas('parts', [
             'name' => 'testパーツ'
         ]);
         $response->assertRedirect('/parts');
+    }
+
+    /**
+     * @return void
+     */
+    public function testUpdate()
+    {
+        $part = factory(Part::class)->create();
+        $response = $this->actingAs($this->user)
+            ->put("/parts/{$part->id}", [
+                'name' => 'testパーツ',
+                'supplier_id' => 2
+            ]);
+        $this->assertDatabaseHas('parts', [
+            'name' => 'testパーツ',
+            'supplier_id' => 2
+        ]);
+        $response->assertRedirect("/parts/{$part->id}");
     }
 }
