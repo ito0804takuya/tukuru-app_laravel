@@ -60,6 +60,27 @@ class ProductsTest extends TestCase
     /**
      * @return void
      */
+    public function testUpdate()
+    {
+        $product = factory(Product::class)->create();
+        \Storage::fake('files');
+        $file = UploadedFile::fake()->image('test.jpg');
+        $name = Str::random(10);
+        $response = $this->actingAs($this->user)
+            ->put("/products/{$product->id}", [
+                'name' => $name,
+                'product_code' => 'SD-KNDJN',
+                'image' => $file
+            ]);
+        $this->assertDatabaseHas('products', [
+            'name' => $name
+        ]);
+        $response->assertRedirect('/');
+    }
+
+    /**
+     * @return void
+     */
     public function testDestroy()
     {
         $product = factory(Product::class)->create();
@@ -72,6 +93,5 @@ class ProductsTest extends TestCase
         $this->assertDatabaseMissing('products', [
             'id' => $product->id
         ]);
-        
     }
 }

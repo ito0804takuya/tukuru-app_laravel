@@ -58,7 +58,6 @@ class PartsController extends Controller
             $part->fill([
                 'name' => $request->name,
                 'supplier_id' => $request->supplier_id,
-                'created_user_id' => Auth::id(),
                 'updated_user_id' => Auth::id()
             ])->save();
         });

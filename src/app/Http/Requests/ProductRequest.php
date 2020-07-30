@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ProductRequest extends FormRequest
 {
@@ -16,10 +18,25 @@ class ProductRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(Request $request)
     {
+        if ($request->method() === 'PUT') {
+            return [
+                'name' => [
+                    'required',
+                    'string',
+                    Rule::unique('products')->ignore($this->product_id),
+                ],
+                'image' => 'sometimes|file|image|max:2048'
+            ];
+        }
+        
         return [
-            'name' => 'required|string|unique:products,name',
+            'name' => [
+                'required',
+                'string',
+                Rule::unique('products')->ignore($this->product_id),
+            ],
             'image' => 'required|file|image|max:2048'
         ];
     }
