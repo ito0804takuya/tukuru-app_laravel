@@ -55,6 +55,29 @@ class ProductsController extends Controller
         return view('products.edit', ['product' => $product, 'parts' => $parts, 'partsIds' => $partsIds]);
     }
 
+    public function update(ProductRequest $request, $id)
+    {
+        DB::transaction(function () use ($request, $id) {
+            $product = Product::find($id);
+            if ($request->image) {
+                $filename = $request->image->store('public/images');
+                $product->fill([
+                    'image' => basename($filename)
+                ]);
+            }
+            $result = $product->fill([
+                'name' => $request->name,
+                'product_code' => $request->product_code,
+                'updated_user_id' => Auth::id()
+            ])->save();
+            if ($result) {
+                $product->parts()->detach();
+                $product->parts()->attach($request->parts);
+            }
+        });
+        return redirect('/');
+    }
+
     public function destroy($id)
     {
         $product = Product::with(['parts'])->find($id);
