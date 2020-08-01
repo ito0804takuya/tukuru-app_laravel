@@ -31,29 +31,35 @@
                         </select>
                     </div>
                 </div>
-                <div class="search-bottom">
-                    <div class="search-bottom-left">
-                        <label for="created_user_name">作成者名</label>
-                        <input id="created_user_name" type="text" class="form-control" name="search_created_user_name" value="@if(isset($request['search_created_user_name'])){{$request['search_created_user_name']}}@endif">
-
-                        <label for="updated_user_name">更新者名</label>
-                        <input id="updated_user_name" type="text" class="form-control" name="search_updated_user_name" value="@if(isset($request['search_updated_user_name'])){{$request['search_updated_user_name']}}@endif">
+                <div class="search__bottom">
+                    <div class="search__bottom__left">
+                        <div class="search__bottom__left__box">
+                            <label for="created_user_name">作成者名</label>
+                            <input id="created_user_name" type="text" class="form-control" name="search_created_user_name" value="@if(isset($request['search_created_user_name'])){{$request['search_created_user_name']}}@endif">
+                        </div>
+                        <div class="search__bottom__left__box">
+                            <label for="updated_user_name">更新者名</label>
+                            <input id="updated_user_name" type="text" class="form-control" name="search_updated_user_name" value="@if(isset($request['search_updated_user_name'])){{$request['search_updated_user_name']}}@endif">
+                        </div>
                     </div>
-                    <div class="search-bottom-right">
-                        <label>作成日時</label>
-                        <input type="date" name="created_from" value="@if(isset($request['created_from'])){{$request['created_from']}}@endif">
-                        <span>~</span>
-                        <input type="date" name="created_until" value="@if(isset($request['created_until'])){{$request['created_until']}}@endif">
-
-                        <label>更新日時</label>
-                        <input type="date" name="updated_from" value="@if(isset($request['updated_from'])){{$request['updated_from']}}@endif">
-                        <span>~</span>
-                        <input type="date" name="updated_until" value="@if(isset($request['updated_until'])){{$request['updated_until']}}@endif">
+                    <div class="search__bottom__right">
+                        <div class="search__bottom__right__box">
+                            <label>作成日時</label>
+                            <input type="date" name="created_from" value="@if(isset($request['created_from'])){{$request['created_from']}}@endif">
+                            <span>~</span>
+                            <input type="date" name="created_until" value="@if(isset($request['created_until'])){{$request['created_until']}}@endif">
+                        </div>
+                        <div class="search__bottom__right__box">
+                            <label>更新日時</label>
+                            <input type="date" name="updated_from" value="@if(isset($request['updated_from'])){{$request['updated_from']}}@endif">
+                            <span>~</span>
+                            <input type="date" name="updated_until" value="@if(isset($request['updated_until'])){{$request['updated_until']}}@endif">
+                        </div>
                     </div>
                 </div>
-                <div class="form-group text-center">
-                    <input type="submit" name="commit" value="検索" class="loginBtn" data-disable-with="登録中...">
-                    <input type="reset" name="bt01" value="リセット">
+                <div class="text-center">
+                    <input type="submit" value="検索" class="searchBtn">
+                    <input type="reset" value="リセット" class="searchBtn reset">
                 </div>
             </form>
         </div>
