@@ -45,6 +45,7 @@
                 <td>{{$product->createdUser->name}}</td>
                 <td>{{$product->created_at}}</td>
                 <td>{{isset($product->updatedUser->name) ? $product->updatedUser->name : ''}}</td>
+
                 <td>{{$product->updated_at}}</td>
             </tr>
             @endforeach
