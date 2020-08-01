@@ -8,15 +8,49 @@ use App\Part;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Builder;
 
 class PartsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $suppliers = DB::table('suppliers')->get();
+
         $parts = Part::with('supplier')
             ->with('createdUser')
-            ->with('updatedUser')->get();
-        return view('parts.index', ['parts' => $parts]);
+            ->with('updatedUser')
+            ->where('parts.name', 'like', '%'.$request->input('search_part_name').'%')
+            ->when($request->input('search_supplier_id'), function($parts) use ($request) {
+                $parts->whereHas('supplier', function (Builder $query) use ($request) {
+                    $query->where('id', $request->input('search_supplier_id'));
+                });
+            })
+            ->whereHas('createdUser', function (Builder $query) use ($request) {
+                $query->where('users.name', 'like', '%'.$request->input('search_created_user_name').'%');
+            })
+            ->when($request->input('search_updated_user_name'), function($parts) use ($request) {
+                $parts->whereHas('updatedUser', function (Builder $query) use ($request) {
+                    $query->where('users.name', 'like', '%'.$request->input('search_updated_user_name').'%');
+                });
+            })
+            ->when($request->input('created_from') && $request->input('created_until') , function($parts) use ($request) {
+                $parts->whereBetween("parts.created_at", [
+                    $request->input('created_from'), 
+                    $request->input('created_until')
+                ]);
+            })
+            ->when($request->input('updated_from') && $request->input('updated_until') , function($parts) use ($request) {
+                $parts->whereBetween("parts.updated_at", [
+                    $request->input('updated_from'), 
+                    $request->input('updated_until')
+                ]);
+            });
+        
+        return view('parts.index', [
+            'parts' => $parts->get(), 
+            'suppliers' => $suppliers,
+            'request' => $request->all()
+        ]);
     }
 
     public function create()
@@ -41,14 +75,20 @@ class PartsController extends Controller
     {
         $part = Part::with(['createdUser', 'updatedUser'])->find($id);
         $products = $part->products()->get();
-        return view('parts.show', ['part' => $part, 'products' => $products]);
+        return view('parts.show', [
+            'part' => $part, 
+            'products' => $products
+        ]);
     }
 
     public function edit($id)
     {
         $part = Part::with('supplier')->find($id);
         $suppliers = DB::table('suppliers')->get();
-        return view('parts.edit', ['part' => $part, 'suppliers' => $suppliers]);
+        return view('parts.edit', [
+            'part' => $part, 
+            'suppliers' => $suppliers
+        ]);
     }
 
     public function update(PartRequest $request, $id)
