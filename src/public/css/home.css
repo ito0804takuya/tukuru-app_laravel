@@ -91,10 +91,23 @@
   vertical-align: middle;
 }
 
+.topPage .right .search__top__right {
+  width: 500px;
+  vertical-align: middle;
+}
+
 .topPage .right .search__top__right select {
   border: 1px solid #ccc;
   border-radius: 2px;
   height: 30px;
+}
+
+.topPage .right .search__top .search_product_code {
+  display: flex;
+}
+
+.topPage .right .search__top .search_product_code input {
+  width: auto;
 }
 
 .topPage .right .search__bottom {
@@ -106,12 +119,17 @@
   padding-right: 20px;
   width: 500px;
   vertical-align: middle;
+  margin-top: 2px;
 }
 
 .topPage .right .search__bottom__left__box {
   display: flex;
   height: 40px;
   line-height: 40px;
+}
+
+.topPage .right .search__bottom__left__box input {
+  margin-top: 2px;
 }
 
 .topPage .right .search__bottom__right {
@@ -140,7 +158,7 @@
   text-align: center;
   text-decoration: none;
   border: none;
-  margin-top: 5px;
+  margin-top: 10px;
   opacity: 1;
   transition: opacity 0.5s;
   outline: none;
@@ -152,7 +170,7 @@
 }
 
 .topPage .right label {
-  width: 100px;
+  width: 100px !important;
 }
 
 .topPage .right p {

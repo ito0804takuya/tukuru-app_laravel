@@ -74,10 +74,18 @@
           vertical-align: middle;
         }
         &__right {
+          width: 500px;
+          vertical-align: middle;
           select {
             border: 1px solid #ccc;
             border-radius: 2px;
             height: 30px;
+          }
+        }
+        .search_product_code {
+          display: flex;
+          input {
+            width: auto;
           }
         }
       }
@@ -88,10 +96,14 @@
           padding-right: 20px;
           width: 500px;
           vertical-align: middle;
+          margin-top: 2px;
           &__box {
             display: flex;
             height: 40px;
             line-height: 40px;
+            input {
+              margin-top: 2px;
+            }
           }
         }
         &__right {
@@ -118,7 +130,7 @@
         text-align: center;
         text-decoration: none;
         border: none;
-        margin-top: 5px;
+        margin-top: 10px;
         opacity: 1;
         transition: opacity .5s;
         outline: none;
@@ -129,7 +141,7 @@
       }
     }
     label {
-      width: 100px;
+      width: 100px !important;
     }
     p {
       display: inline-block;
