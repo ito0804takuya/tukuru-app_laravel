@@ -63,7 +63,7 @@
                 </div>
             </form>
         </div>
-        <div class="paginate">1 2 3...</div>
+        <div class="paginate">{{ $parts->links() }}</div>
         <table>
             <tr>
                 <th>部品名</th>
@@ -84,8 +84,6 @@
             </tr>
             @endforeach
         </table>
-
-        <div class="paginate">1 2 3...</div>
     </div>
 </div>
 @endsection

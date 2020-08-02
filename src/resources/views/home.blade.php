@@ -58,7 +58,7 @@
                 </div>
             </form>
         </div>
-        <div class="paginate">1 2 3...</div>
+        <div class="paginate">{{ $products->links() }}</div>
         <table>
             <tr>
                 <th>商品名</th>
@@ -75,13 +75,10 @@
                 <td>{{$product->createdUser->name}}</td>
                 <td>{{$product->created_at}}</td>
                 <td>{{isset($product->updatedUser->name) ? $product->updatedUser->name : ''}}</td>
-
                 <td>{{$product->updated_at}}</td>
             </tr>
             @endforeach
         </table>
-
-        <div class="paginate">1 2 3...</div>
     </div>
 </div>
 @endsection
