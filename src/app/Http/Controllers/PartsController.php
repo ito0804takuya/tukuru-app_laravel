@@ -19,35 +19,37 @@ class PartsController extends Controller
         $parts = Part::with('supplier')
             ->with('createdUser')
             ->with('updatedUser')
-            ->where('parts.name', 'like', '%'.$request->input('search_part_name').'%')
-            ->when($request->input('search_supplier_id'), function($parts) use ($request) {
+            ->where('parts.name', 'like', '%' . $request->input('search_part_name') . '%')
+            ->when($request->input('search_supplier_id'), function ($parts) use ($request) {
                 $parts->whereHas('supplier', function (Builder $query) use ($request) {
                     $query->where('id', $request->input('search_supplier_id'));
                 });
             })
             ->whereHas('createdUser', function (Builder $query) use ($request) {
-                $query->where('users.name', 'like', '%'.$request->input('search_created_user_name').'%');
+                $query->where('users.name', 'like', '%' . $request->input('search_created_user_name') . '%');
             })
-            ->when($request->input('search_updated_user_name'), function($parts) use ($request) {
+            ->when($request->input('search_updated_user_name'), function ($parts) use ($request) {
                 $parts->whereHas('updatedUser', function (Builder $query) use ($request) {
-                    $query->where('users.name', 'like', '%'.$request->input('search_updated_user_name').'%');
+                    $query->where('users.name', 'like', '%' . $request->input('search_updated_user_name') . '%');
                 });
             })
-            ->when($request->input('created_from') && $request->input('created_until') , function($parts) use ($request) {
+            ->when($request->input('created_from') && $request->input('created_until'), function ($parts) use ($request) {
                 $parts->whereBetween("parts.created_at", [
-                    $request->input('created_from'), 
+                    $request->input('created_from'),
                     $request->input('created_until')
                 ]);
             })
-            ->when($request->input('updated_from') && $request->input('updated_until') , function($parts) use ($request) {
+            ->when($request->input('updated_from') && $request->input('updated_until'), function ($parts) use ($request) {
                 $parts->whereBetween("parts.updated_at", [
-                    $request->input('updated_from'), 
+                    $request->input('updated_from'),
                     $request->input('updated_until')
                 ]);
-            });
-        
+            })
+            ->orderBy('parts.updated_at', 'desc')
+            ->paginate(10);
+
         return view('parts.index', [
-            'parts' => $parts->get(), 
+            'parts' => $parts,
             'suppliers' => $suppliers,
             'request' => $request->all()
         ]);
@@ -76,7 +78,7 @@ class PartsController extends Controller
         $part = Part::with(['createdUser', 'updatedUser'])->find($id);
         $products = $part->products()->get();
         return view('parts.show', [
-            'part' => $part, 
+            'part' => $part,
             'products' => $products
         ]);
     }
@@ -86,7 +88,7 @@ class PartsController extends Controller
         $part = Part::with('supplier')->find($id);
         $suppliers = DB::table('suppliers')->get();
         return view('parts.edit', [
-            'part' => $part, 
+            'part' => $part,
             'suppliers' => $suppliers
         ]);
     }

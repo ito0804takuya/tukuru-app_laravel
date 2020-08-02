@@ -27,6 +27,5 @@ class ProductsTableSeeder extends Seeder
             ->each(function ($product) use ($parts) {
                 $product->parts()->attach($parts->random(rand(1,3))->pluck('id')->toArray());
             });
-        
     }
 }

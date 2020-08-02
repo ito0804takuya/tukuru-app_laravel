@@ -36,9 +36,12 @@ class ProductsController extends Controller
                     $request->input('updated_from'),
                     $request->input('updated_until')
                 ]);
-            });
+            })
+            ->orderBy('products.updated_at', 'desc')
+            ->paginate(10);
+
         return view('home', [
-            'products' => $products->get(),
+            'products' => $products,
             'request' => $request->all()
         ]);
     }
