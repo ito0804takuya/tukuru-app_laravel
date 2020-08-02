@@ -74,10 +74,18 @@
           vertical-align: middle;
         }
         &__right {
+          width: 500px;
+          vertical-align: middle;
           select {
             border: 1px solid #ccc;
             border-radius: 2px;
             height: 30px;
+          }
+        }
+        .search_product_code {
+          display: flex;
+          input {
+            width: auto;
           }
         }
       }
@@ -129,7 +137,7 @@
       }
     }
     label {
-      width: 100px;
+      width: 100px !important;
     }
     p {
       display: inline-block;

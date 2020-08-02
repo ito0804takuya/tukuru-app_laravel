@@ -7,14 +7,40 @@ use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\DB;
 use App\Product;
+use Illuminate\Database\Eloquent\Builder;
 
 class ProductsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $products = Product::with('createdUser')
-            ->with('updatedUser')->get();
-        return view('home', ['products' => $products]);
+            ->with('updatedUser')
+            ->where('products.name', 'like', '%' . $request->input('search_product_name') . '%')
+            ->where('products.product_code', 'like', '%' . $request->input('search_product_code') . '%')
+            ->whereHas('createdUser', function (Builder $query) use ($request) {
+                $query->where('users.name', 'like', '%' . $request->input('search_created_user_name') . '%');
+            })
+            ->when($request->input('search_updated_user_name'), function ($products) use ($request) {
+                $products->whereHas('updatedUser', function (Builder $query) use ($request) {
+                    $query->where('users.name', 'like', '%' . $request->input('search_updated_user_name') . '%');
+                });
+            })
+            ->when($request->input('created_from') && $request->input('created_until'), function ($products) use ($request) {
+                $products->whereBetween("products.created_at", [
+                    $request->input('created_from'),
+                    $request->input('created_until')
+                ]);
+            })
+            ->when($request->input('updated_from') && $request->input('updated_until'), function ($products) use ($request) {
+                $products->whereBetween("products.updated_at", [
+                    $request->input('updated_from'),
+                    $request->input('updated_until')
+                ]);
+            });
+        return view('home', [
+            'products' => $products->get(),
+            'request' => $request->all()
+        ]);
     }
 
     public function create()
@@ -44,7 +70,10 @@ class ProductsController extends Controller
     {
         $product = Product::with(['createdUser', 'updatedUser'])->find($id);
         $parts = $product->parts()->get();
-        return view('products.show', ['product' => $product, 'parts' => $parts]);
+        return view('products.show', [
+            'product' => $product,
+            'parts' => $parts
+        ]);
     }
 
     public function edit($id)
@@ -52,7 +81,11 @@ class ProductsController extends Controller
         $product = Product::with(['createdUser', 'updatedUser'])->find($id);
         $parts = DB::table('parts')->get();
         $partsIds = $product->parts->pluck('id')->toArray();
-        return view('products.edit', ['product' => $product, 'parts' => $parts, 'partsIds' => $partsIds]);
+        return view('products.edit', [
+            'product' => $product,
+            'parts' => $parts,
+            'partsIds' => $partsIds
+        ]);
     }
 
     public function update(ProductRequest $request, $id)

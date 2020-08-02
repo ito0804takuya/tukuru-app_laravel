@@ -91,10 +91,23 @@
   vertical-align: middle;
 }
 
+.topPage .right .search__top__right {
+  width: 500px;
+  vertical-align: middle;
+}
+
 .topPage .right .search__top__right select {
   border: 1px solid #ccc;
   border-radius: 2px;
   height: 30px;
+}
+
+.topPage .right .search__top .search_product_code {
+  display: flex;
+}
+
+.topPage .right .search__top .search_product_code input {
+  width: auto;
 }
 
 .topPage .right .search__bottom {
@@ -152,7 +165,7 @@
 }
 
 .topPage .right label {
-  width: 100px;
+  width: 100px !important;
 }
 
 .topPage .right p {
