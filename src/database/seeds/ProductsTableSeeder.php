@@ -1,6 +1,10 @@
 <?php
 
+use App\Part;
+use App\Product;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ProductsTableSeeder extends Seeder
 {
@@ -11,10 +15,18 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('products')->insert([
-            ['name' => 'エアコン', 'product_code' => 'SD-KNDJN', 'image' => 'test_image', 'created_user_id' => 1, 'updated_user_id' => 1],
-            ['name' => '洗濯機', 'product_code' => 'SD-KNDJN', 'image' => 'test_image', 'created_user_id' => 1, 'updated_user_id' => 1],
-            ['name' => '掃除機', 'product_code' => 'SD-KNDJN', 'image' => 'test_image', 'created_user_id' => 1, 'updated_user_id' => 1],
-        ]);
+        DB::table('products')->truncate();
+        DB::table('parts')->truncate();
+        DB::table('product_parts')->truncate();
+
+        factory(Part::class, 10)->create();
+        $parts = Part::all();
+
+        // 商品を、1~3つの部品と紐付けて登録
+        factory(Product::class, 10)->create()
+            ->each(function ($product) use ($parts) {
+                $product->parts()->attach($parts->random(rand(1,3))->pluck('id')->toArray());
+            });
+        
     }
 }

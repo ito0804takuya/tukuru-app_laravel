@@ -1,10 +1,10 @@
 <?php
 
+use App\User;
 use Illuminate\Database\Seeder;
-use App\Supplier;
 use Illuminate\Support\Facades\DB;
 
-class SuppliersTableSeeder extends Seeder
+class UsersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,7 +13,7 @@ class SuppliersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('suppliers')->truncate();
-        factory(Supplier::class, 10)->create();
+        DB::table('users')->truncate();
+        factory(User::class, 10)->create();
     }
 }
