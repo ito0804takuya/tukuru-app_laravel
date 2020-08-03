@@ -6,7 +6,7 @@
         <ul class="sidenav">
             <li><a class="active" href="/products"><i class="fas fa-car"></i> 商品一覧</a></li>
             <li><a href="/parts"><i class="fas fa-wrench"></i> 部品一覧</a></li>
-            <li><a href="/products">About</a></li>
+            <li><a href="/about">About</a></li>
         </ul>
     </div>
     <div class="right">

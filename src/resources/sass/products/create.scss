@@ -1,5 +1,5 @@
 .createProductPage {
-  margin-top: 70px;
+  margin-top: 80px;
   .title {
     margin: 0;
     text-align: center;
@@ -72,24 +72,6 @@
         margin-top: 5px;
       }
     }
-    .loginBtn {
-      padding: 12px;
-      width: 200px;
-      border-radius: 21px;
-      background: #29b744;
-      color: #fff;
-      text-align: center;
-      text-decoration: none;
-      border: none;
-      margin-top: 20px;
-      opacity: 1;
-      transition: opacity .5s;
-      cursor: pointer;
-      &:hover {
-        opacity: .7;
-        text-decoration: none;
-      }
-    }
   }
 }
 .note-mark {
@@ -119,4 +101,29 @@
   vertical-align: middle;
   text-decoration: none;
   cursor: pointer;
+}
+.loginBtn {
+  padding: 12px;
+  width: 200px;
+  border-radius: 21px;
+  background: #29b744;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  margin-top: 20px;
+  opacity: 1;
+  transition: opacity .5s;
+  cursor: pointer;
+  &:hover {
+    opacity: .7;
+    text-decoration: none;
+  }
+}
+.backBtn {
+  padding: 7px;
+  border-radius: 21px;
+  margin-left: 20px;
+  width: 80px;
+  background: #888888;
 }

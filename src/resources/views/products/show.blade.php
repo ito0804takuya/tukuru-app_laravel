@@ -55,6 +55,9 @@
             </div>
         </div>
     </div>
+    <div class="form-group text-center">
+        <input type="button" value="戻る" onclick="history.back()" class="loginBtn backBtn">
+    </div>
 </div>
 
 @endsection

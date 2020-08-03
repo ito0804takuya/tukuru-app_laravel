@@ -2,11 +2,9 @@
   margin: 80px auto 30px;
   display: flex;
 }
-
 .topPage .left {
   width: 250px;
 }
-
 .topPage .left ul.sidenav {
   list-style-type: none;
   margin: 0 auto;
@@ -16,39 +14,32 @@
   position: relative;
   overflow: auto;
 }
-
 .topPage .left ul.sidenav li a {
   display: block;
   color: black;
   padding: 8px 16px;
   text-decoration: none;
 }
-
 .topPage .left ul.sidenav li a.active {
   background-color: #d85358;
   color: white;
 }
-
 .topPage .left ul.sidenav li a:hover:not(.active) {
   opacity: 0.7;
   background-color: #9ac8e2;
 }
-
 .topPage .right {
   width: calc(100% - 250px);
 }
-
 .topPage .right .title-area {
   margin: 0 0 20px;
 }
-
 .topPage .right .title-area .title {
   display: inline-block;
   font-size: 28px;
   margin: 0 30px 0 0;
   vertical-align: middle;
 }
-
 .topPage .right .title-area .create-product-btn {
   border: none;
   border-radius: 18px;
@@ -63,12 +54,10 @@
   cursor: pointer;
   vertical-align: middle;
 }
-
 .topPage .right .title-area .create-product-btn:hover {
   opacity: 0.7;
   text-decoration: none;
 }
-
 .topPage .right .search {
   padding: 10px;
   background-color: #e2e2e2;
@@ -76,80 +65,66 @@
   border-radius: 5px;
   width: 1100px;
 }
-
 .topPage .right .search__top {
   border-bottom: 1px solid #a8b7c5;
   height: 40px;
   line-height: 40px;
   display: flex;
 }
-
 .topPage .right .search__top__left {
   display: flex;
   padding-right: 20px;
   width: 500px;
   vertical-align: middle;
 }
-
 .topPage .right .search__top__right {
   width: 500px;
   vertical-align: middle;
 }
-
 .topPage .right .search__top__right select {
   border: 1px solid #ccc;
   border-radius: 2px;
   height: 30px;
 }
-
 .topPage .right .search__top .search_product_code {
   display: flex;
 }
-
 .topPage .right .search__top .search_product_code input {
   width: auto;
 }
-
 .topPage .right .search__bottom {
   border-bottom: 1px solid #a8b7c5;
   display: flex;
 }
-
 .topPage .right .search__bottom__left {
   padding-right: 20px;
   width: 500px;
   vertical-align: middle;
   margin-top: 2px;
 }
-
 .topPage .right .search__bottom__left__box {
   display: flex;
   height: 40px;
   line-height: 40px;
 }
-
 .topPage .right .search__bottom__left__box input {
   margin-top: 2px;
 }
-
 .topPage .right .search__bottom__right {
   padding-right: 20px;
   width: 500px;
   vertical-align: middle;
 }
-
 .topPage .right .search__bottom__right__box {
   height: 40px;
   line-height: 40px;
 }
-
 .topPage .right .search__bottom__right__box input {
   height: 30px;
   line-height: 30px;
   border: 1px solid #ccc;
   border-radius: 2px;
 }
-
 .topPage .right .search .searchBtn {
   width: 100px;
   border-radius: 10px;
@@ -164,25 +139,20 @@
   outline: none;
   cursor: pointer;
 }
-
 .topPage .right .search .reset {
   background: #888888;
 }
-
 .topPage .right label {
   width: 100px !important;
 }
-
 .topPage .right p {
   display: inline-block;
 }
-
 .topPage .right table {
   border-collapse: collapse;
   border-spacing: 0;
   width: 1100px;
 }
-
 .topPage .right th {
   text-align: center;
   color: white;
@@ -190,21 +160,17 @@
   width: 10%;
   padding: 10px 0;
 }
-
 .topPage .right tr.lovelyrow {
   background-color: #fdfdfd;
 }
-
 .topPage .right tr.lovelyrow:nth-child(odd) {
   background-color: #eee;
 }
-
 .topPage .right tr.lovelyrow:hover {
   opacity: 0.7;
   background-color: #9ac8e2;
   cursor: pointer;
 }
-
 .topPage .right td {
   text-align: center;
   border-left: 1px solid #a8b7c5;
@@ -218,13 +184,10 @@
   max-width: 15%;
   padding: 10px 0;
 }
-
 .topPage .right td:last-child {
   border-right: 1px solid #a8b7c5;
 }
-
 .topPage .right td.product-name {
   width: 25%;
   max-width: 25%;
 }
-

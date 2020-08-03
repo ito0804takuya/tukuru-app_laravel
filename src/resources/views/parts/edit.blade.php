@@ -38,6 +38,7 @@
       </div>
       <div class="form-group text-center">
         <input type="submit" name="commit" value="上記内容で部品情報を変更" class="loginBtn" data-disable-with="登録中...">
+        <input type="button" value="戻る" onclick="history.back()" class="loginBtn backBtn">
       </div>
     </form>
   </div>
