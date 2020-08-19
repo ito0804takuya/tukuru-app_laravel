@@ -1,7 +1,16 @@
 FROM php:7.3-fpm-alpine
+COPY ./src /work
+COPY ./docker/php/php.ini /usr/local/etc/php/php.ini
 LABEL maintainer "your-name"
 
-ARG TZ
+SHELL ["/bin/ash", "-oeux", "pipefail", "-c"]
+
+ARG PSYSH_DIR=/usr/local/share/psysh
+ARG PSYSH_PHP_MANUAL=$PSYSH_DIR/php_manual.sqlite
+ARG PHP_MANUAL_URL=http://psysh.org/manual/ja/php_manual.sqlite
+
+ARG TZ=Asia/Tokyo
+
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /composer
 
