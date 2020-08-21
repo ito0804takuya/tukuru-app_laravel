@@ -19,7 +19,7 @@
         </div>
         <div class="main">
             <div class='left'>
-                <img class='image' src="{{ asset('storage/images/' . $product->image) }}" alt="" />
+                <img class='image' src="{{ $product->image }}" alt="" />
                 <table>
                     <tr>
                         <th>商品コード</th>

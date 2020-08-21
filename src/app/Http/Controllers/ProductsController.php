@@ -8,6 +8,7 @@ use Auth;
 use Illuminate\Support\Facades\DB;
 use App\Product;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller
 {
@@ -55,11 +56,21 @@ class ProductsController extends Controller
     public function store(ProductRequest $request)
     {
         $product = new Product;
-        $filename = $request->image->store('public/images');
+        $image = $request->file('image');
+        if(app()->isLocal()) {
+            $filename = $image->store('public/images');
+            $product->fill([
+                'image' => Storage::url($filename)
+            ]);
+        } else {
+            $filename = Storage::disk('s3')->put('/', $image, 'public');
+            $product->fill([
+                'image' => Storage::disk('s3')->url($filename)
+            ]);
+        }
         $result = $product->fill([
             'name' => $request->name,
             'product_code' => $request->product_code,
-            'image' => basename($filename),
             'created_user_id' => Auth::id(),
             'updated_user_id' => null
         ])->save();
