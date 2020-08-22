@@ -107,10 +107,18 @@ class ProductsController extends Controller
         DB::transaction(function () use ($request, $id) {
             $product = Product::find($id);
             if ($request->image) {
-                $filename = $request->image->store('public/images');
-                $product->fill([
-                    'image' => basename($filename)
-                ]);
+                $image = $request->file('image');
+                if(app()->isLocal()) {
+                    $filename = $image->store('public/images');
+                    $product->fill([
+                        'image' => Storage::url($filename)
+                    ]);
+                } else {
+                    $filename = Storage::disk('s3')->put('/', $image, 'public');
+                    $product->fill([
+                        'image' => Storage::disk('s3')->url($filename)
+                    ]);
+                }
             }
             $result = $product->fill([
                 'name' => $request->name,
