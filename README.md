@@ -68,7 +68,7 @@ http://13.231.189.5
 |------|----|-------|
 |product_id|integer||
 |part_id|integer||
-#### Association
+#### アソシエーション
 - hasMany :products
 - hasMany :parts
 
@@ -76,7 +76,7 @@ http://13.231.189.5
 |column|Type|Option|
 |-------|----|-----|
 |name|string||
-#### Association
+#### アソシエーション
 - has_many :part
 
 ### usersテーブル
